@@ -1,0 +1,160 @@
+
+    <!DOCTYPE html>
+    <html lang="en" dir="ltr">
+    <head>
+        <!-- bootstrap libraries-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+        <!-- canvasjs libraries -->
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <script type="text/javascript">
+            window.onload = function () {
+                var chart = new CanvasJS.Chart("chart_1", {
+                    animationEnabled: true,
+                    title:{
+                        text: "Movies/TV Shows Inventory by Release Date"
+                    },
+                    axisY: {
+                        title: "Quantity",
+                        maximun: 250,
+                        interval: 50
+                    },
+                    legend:{
+                        cursor: "pointer",
+                        fontSize: 16,
+                        itemclick: toggleDataSeries
+                    },
+                    toolTip:{
+                        shared: true
+                    },
+                    data: [{
+                        name: "TV Shows",
+                        type: "spline",
+                        showInLegend: true,
+                        dataPoints: [
+                           {label:"2008-02", y:1},{label:"2012-07", y:1},{label:"2012-08", y:1},{label:"2012-10", y:1},{label:"2013-03", y:1},{label:"2013-04", y:1},{label:"2013-08", y:1},{label:"2013-09", y:1},{label:"2013-10", y:2},{label:"2014-02", y:1},{label:"2014-04", y:1},{label:"2014-11", y:3},{label:"2014-12", y:1},{label:"2015-02", y:1},{label:"2015-03", y:2},{label:"2015-04", y:6},{label:"2015-05", y:2},{label:"2015-06", y:3},{label:"2015-07", y:3},{label:"2015-09", y:1},{label:"2015-10", y:5},{label:"2015-11", y:2},{label:"2015-12", y:7},{label:"2016-01", y:29},{label:"2016-02", y:7},{label:"2016-03", y:4},{label:"2016-04", y:8},{label:"2016-05", y:5},{label:"2016-06", y:8},{label:"2016-07", y:12},{label:"2016-08", y:19},{label:"2016-09", y:19},{label:"2016-10", y:19},{label:"2016-11", y:18},{label:"2016-12", y:44},{label:"2017-01", y:15},{label:"2017-02", y:19},{label:"2017-03", y:39},{label:"2017-04", y:31},{label:"2017-05", y:26},{label:"2017-06", y:30},{label:"2017-07", y:35},{label:"2017-08", y:41},{label:"2017-09", y:36},{label:"2017-10", y:39},{label:"2017-11", y:33},{label:"2017-12", y:43},{label:"2018-01", y:27},{label:"2018-02", y:27},{label:"2018-03", y:40},{label:"2018-04", y:34},{label:"2018-05", y:32},{label:"2018-06", y:31},{label:"2018-07", y:32},{label:"2018-08", y:42},{label:"2018-09", y:49},{label:"2018-10", y:55},{label:"2018-11", y:48},{label:"2018-12", y:75},{label:"2019-01", y:44},{label:"2019-02", y:59},{label:"2019-03", y:74},{label:"2019-04", y:58},{label:"2019-05", y:68},{label:"2019-06", y:61},{label:"2019-07", y:78},{label:"2019-08", y:71},{label:"2019-09", y:66},{label:"2019-10", y:84},{label:"2019-11", y:87},{label:"2019-12", y:53},{label:"2020-01", y:37}
+                        ]
+                    },
+                    {
+                        name: "Movies",
+                        type: "spline",
+                        showInLegend: true,
+                        dataPoints: [
+                            {label:"2008-01", y:1},{label:"2009-05", y:1},{label:"2009-11", y:1},{label:"2010-11", y:1},{label:"2011-05", y:1},{label:"2011-09", y:1},{label:"2011-10", y:11},{label:"2012-02", y:1},{label:"2012-07", y:1},{label:"2012-11", y:1},{label:"2012-12", y:1},{label:"2013-09", y:1},{label:"2013-10", y:1},{label:"2013-11", y:2},{label:"2013-12", y:2},{label:"2014-01", y:2},{label:"2014-02", y:1},{label:"2014-04", y:1},{label:"2014-06", y:1},{label:"2014-07", y:1},{label:"2014-08", y:1},{label:"2014-09", y:1},{label:"2014-10", y:4},{label:"2014-11", y:2},{label:"2014-12", y:5},{label:"2015-01", y:1},{label:"2015-02", y:3},{label:"2015-03", y:3},{label:"2015-04", y:1},{label:"2015-05", y:5},{label:"2015-06", y:4},{label:"2015-07", y:5},{label:"2015-08", y:2},{label:"2015-09", y:6},{label:"2015-10", y:10},{label:"2015-11", y:2},{label:"2015-12", y:16},{label:"2016-01", y:15},{label:"2016-02", y:9},{label:"2016-03", y:15},{label:"2016-04", y:15},{label:"2016-05", y:9},{label:"2016-06", y:11},{label:"2016-07", y:19},{label:"2016-08", y:25},{label:"2016-09", y:29},{label:"2016-10", y:34},{label:"2016-11", y:29},{label:"2016-12", y:54},{label:"2017-01", y:59},{label:"2017-02", y:68},{label:"2017-03", y:107},{label:"2017-04", y:68},{label:"2017-05", y:88},{label:"2017-06", y:66},{label:"2017-07", y:47},{label:"2017-08", y:77},{label:"2017-09", y:88},{label:"2017-10", y:99},{label:"2017-11", y:58},{label:"2017-12", y:88},{label:"2018-01", y:110},{label:"2018-02", y:66},{label:"2018-03", y:142},{label:"2018-04", y:98},{label:"2018-05", y:76},{label:"2018-06", y:50},{label:"2018-07", y:132},{label:"2018-08", y:137},{label:"2018-09", y:85},{label:"2018-10", y:146},{label:"2018-11", y:120},{label:"2018-12", y:128},{label:"2019-01", y:123},{label:"2019-02", y:115},{label:"2019-03", y:124},{label:"2019-04", y:125},{label:"2019-05", y:115},{label:"2019-06", y:128},{label:"2019-07", y:108},{label:"2019-08", y:92},{label:"2019-09", y:96},{label:"2019-10", y:136},{label:"2019-11", y:205},{label:"2019-12", y:179},{label:"2020-01", y:147}
+                        ]
+                    }]
+                });
+                chart.render();
+
+                function toggleDataSeries(e){
+                    if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                        e.dataSeries.visible = false;
+                    }
+                    else{
+                        e.dataSeries.visible = true;
+                    }
+                    chart.render();
+                }
+         
+        var chart = new CanvasJS.Chart("chart_2", {
+                animationEnabled: true,
+                exportEnabled: true,
+                theme: "light1", // "light1", "light2", "dark1", "dark2"
+                title:{
+                    text: "Total Inventory by Category"
+                },
+                axisY: {
+                  includeZero: true
+                },
+                data: [{
+                    type: "column", //change type to bar, line, area, pie, etc
+                    indexLabel: "{y}", //Shows y value on all Data Points
+                    indexLabelFontColor: "#5A5757",
+                    indexLabelFontSize: 10,
+                    indexLabelPlacement: "outside",
+                    dataPoints: [
+                        {label:"Children & Family Movies", y: 378},{label:"Comedies", y: 1113},{label:"Stand-Up Comedy", y: 281},{label:"Kids' TV", y: 328},{label:"Crime TV Shows", y: 363},{label:"International TV Shows", y: 1001},{label:"Spanish-Language TV Shows", y: 117},{label:"International Movies", y: 1927},{label:"Sci-Fi & Fantasy", y: 193},{label:"Thrillers", y: 392},{label:"Docuseries", y: 279},{label:"Science & Nature TV", y: 67},{label:"Action & Adventure", y: 597},{label:"Dramas", y: 1623},{label:"Cult Movies", y: 55},{label:"Independent Movies", y: 552},{label:"Romantic Movies", y: 376},{label:"Documentaries", y: 668},{label:"Horror Movies", y: 262},{label:"Romantic TV Shows", y: 278},{label:"TV Comedies", y: 436},{label:"TV Dramas", y: 599},{label:"TV Thrillers", y: 44},{label:"TV Mysteries", y: 69},{label:"British TV Shows", y: 210},{label:"Music & Musicals", y: 243},{label:"Reality TV", y: 153},{label:"TV Action & Adventure", y: 126},{label:"Anime Features", y: 45},{label:"Teen TV Shows", y: 44},{label:"Faith & Spirituality", y: 47},{label:"Korean TV Shows", y: 132},{label:"Anime Series", y: 117},{label:"LGBTQ Movies", y: 60},{label:"TV Horror", y: 54},{label:"Movies", y: 56},{label:"Stand-Up Comedy & Talk Shows", y: 42},{label:"TV Sci-Fi & Fantasy", y: 68},{label:"Classic Movies", y: 84},{label:"Sports Movies", y: 157},{label:"TV Shows", y: 10},{label:"Classic & Cult TV", y: 24}
+                        ]
+                    }]
+                });
+                chart.render();
+        }</script>
+        <link rel="icon" type="image/png" href="D:/Projects/sandbox/serverless_dashboard/favicon.png">
+        <meta charset="utf-8">
+        <title>Stakeholders Dashboard</title>
+    </head>
+    <body>
+    <!-- navbar block -->
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+          <a class="navbar-brand" href="#"><img src="D:/Projects/sandbox/serverless_dashboard/netflix-logo.png" width="100px"/></a>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">View 2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">View 3</a>
+              </li>
+            </ul>
+            <span class="navbar-text">
+                <h4 style="color:white;"><b>SERVERLESS DASHBOARD</b></h4>
+            </span>
+          </div>
+        </nav>
+        
+    <!-- end navbar block -->
+
+    <div class="divider" style="margin-top:40px;"></div>
+
+    <div class="container">
+      <div class="row">
+          <div class="col">
+            <div id="chart_1" style="height: 370px; width: 100%;"></div>
+        </div>
+      </div>
+
+      <div class="divider" style="margin-top:40px;"></div>
+
+      <div class="row">
+        <div class="col">
+          <div id="chart_2" style="height: 370px; width: 100%;"></div>
+        </div>
+        <div class="col">
+          <h3>Best Directors Based on Ratings</h3>
+          <div style="overflow-y: scroll; height: 350px;">
+          
+        <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Director</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Quantity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Raúl Campos, Jan Suter</td><td>Movie</td><td>18</td></tr><tr><td>Marcus Raboy</td><td>Movie</td><td>14</td></tr><tr><td>Jay Karas</td><td>Movie</td><td>13</td></tr><tr><td>Jay Chapman</td><td>Movie</td><td>12</td></tr><tr><td>Martin Scorsese</td><td>Movie</td><td>9</td></tr><tr><td>Steven Spielberg</td><td>Movie</td><td>9</td></tr><tr><td>David Dhawan</td><td>Movie</td><td>8</td></tr><tr><td>Johnnie To</td><td>Movie</td><td>8</td></tr><tr><td>Lance Bangs</td><td>Movie</td><td>8</td></tr><tr><td>Cathy Garcia-Molina</td><td>Movie</td><td>7</td></tr><tr><td>Hakan Algül</td><td>Movie</td><td>7</td></tr><tr><td>Ryan Polito</td><td>Movie</td><td>7</td></tr><tr><td>S.S. Rajamouli</td><td>Movie</td><td>7</td></tr><tr><td>Shannon Hartman</td><td>Movie</td><td>7</td></tr><tr><td>Don Michael Paul</td><td>Movie</td><td>6</td></tr><tr><td>Fernando Ayllón</td><td>Movie</td><td>6</td></tr><tr><td>Kunle Afolayan</td><td>Movie</td><td>6</td></tr><tr><td>Matt Askem</td><td>Movie</td><td>6</td></tr><tr><td>Noah Baumbach</td><td>Movie</td><td>6</td></tr><tr><td>Omoni Oboli</td><td>Movie</td><td>6</td></tr><tr><td>Quentin Tarantino</td><td>Movie</td><td>6</td></tr><tr><td>Ram Gopal Varma</td><td>Movie</td><td>6</td></tr><tr><td>Robert Rodriguez</td><td>Movie</td><td>6</td></tr><tr><td>Robert Vince</td><td>Movie</td><td>6</td></tr><tr><td>Vlad Yudin</td><td>Movie</td><td>6</td></tr><tr><td>Wenn V. Deramas</td><td>Movie</td><td>6</td></tr><tr><td>Yılmaz Erdoğan</td><td>Movie</td><td>6</td></tr><tr><td>Anees Bazmee</td><td>Movie</td><td>5</td></tr><tr><td>Ashutosh Gowariker</td><td>Movie</td><td>5</td></tr><tr><td>David Batty</td><td>Movie</td><td>5</td></tr><tr><td>Kevin Smith</td><td>Movie</td><td>5</td></tr><tr><td>Kıvanç Baruönü</td><td>Movie</td><td>5</td></tr><tr><td>Madhur Bhandarkar</td><td>Movie</td><td>5</td></tr><tr><td>Manny Rodriguez</td><td>Movie</td><td>5</td></tr><tr><td>McG</td><td>Movie</td><td>5</td></tr><tr><td>Mike Clattenburg</td><td>Movie</td><td>5</td></tr><tr><td>Nagesh Kukunoor</td><td>Movie</td><td>5</td></tr><tr><td>Poj Arnon</td><td>Movie</td><td>5</td></tr><tr><td>Priyadarshan</td><td>Movie</td><td>5</td></tr><tr><td>Rajiv Mehra</td><td>Movie</td><td>5</td></tr><tr><td>Riri Riza</td><td>Movie</td><td>5</td></tr><tr><td>Rocky Soraya</td><td>Movie</td><td>5</td></tr><tr><td>Sameh Abdulaziz</td><td>Movie</td><td>5</td></tr><tr><td>Steven Soderbergh</td><td>Movie</td><td>5</td></tr><tr><td>Troy Miller</td><td>Movie</td><td>5</td></tr><tr><td>Umesh Mehra</td><td>Movie</td><td>5</td></tr><tr><td>Vishal Bhardwaj</td><td>Movie</td><td>5</td></tr><tr><td>Abbas Alibhai Burmawalla, Mastan Alibhai Burmawalla</td><td>Movie</td><td>4</td></tr><tr><td>Andy Tennant</td><td>Movie</td><td>4</td></tr><tr><td>Chia-Liang Liu</td><td>Movie</td><td>4</td></tr><tr><td>Chris Stokes</td><td>Movie</td><td>4</td></tr><tr><td>Clint Eastwood</td><td>Movie</td><td>4</td></tr><tr><td>Cristina Jacob</td><td>Movie</td><td>4</td></tr><tr><td>Detlev Buck</td><td>Movie</td><td>4</td></tr><tr><td>Dibakar Banerjee</td><td>Movie</td><td>4</td></tr><tr><td>Edward Cotterill</td><td>Movie</td><td>4</td></tr><tr><td>Farah Khan</td><td>Movie</td><td>4</td></tr><tr><td>Farhan Akhtar</td><td>Movie</td><td>4</td></tr><tr><td>Gajendra Ahire</td><td>Movie</td><td>4</td></tr><tr><td>Gregory Hoblit</td><td>Movie</td><td>4</td></tr><tr><td>Hernán Zin</td><td>Movie</td><td>4</td></tr><tr><td>Hrishikesh Mukherjee</td><td>Movie</td><td>4</td></tr><tr><td>Imtiaz Ali</td><td>Movie</td><td>4</td></tr><tr><td>Jay Roach</td><td>Movie</td><td>4</td></tr><tr><td>Jeremy Saulnier</td><td>Movie</td><td>4</td></tr><tr><td>Joe Camp</td><td>Movie</td><td>4</td></tr><tr><td>Justin G. Dyck</td><td>Movie</td><td>4</td></tr><tr><td>Kundan Shah</td><td>Movie</td><td>4</td></tr><tr><td>Lee Tamahori</td><td>Movie</td><td>4</td></tr><tr><td>Leslie Small</td><td>Movie</td><td>4</td></tr><tr><td>Mae Czarina Cruz</td><td>Movie</td><td>4</td></tr><tr><td>Michael Simon</td><td>Movie</td><td>4</td></tr><tr><td>Mike Newell</td><td>Movie</td><td>4</td></tr><tr><td>Milan Luthria</td><td>Movie</td><td>4</td></tr><tr><td>Nishikant Kamat</td><td>Movie</td><td>4</td></tr><tr><td>Ozan Açıktan</td><td>Movie</td><td>4</td></tr><tr><td>Prakash Satam</td><td>Movie</td><td>4</td></tr><tr><td>Rajkumar Santoshi</td><td>Movie</td><td>4</td></tr><tr><td>Rakeysh Omprakash Mehra</td><td>Movie</td><td>4</td></tr><tr><td>Rohit Jugraj</td><td>Movie</td><td>4</td></tr><tr><td>Subhash Ghai</td><td>Movie</td><td>4</td></tr><tr><td>Toshiya Shinohara</td><td>Movie</td><td>4</td></tr><tr><td>Werner Herzog</td><td>Movie</td><td>4</td></tr><tr><td>William Lau</td><td>Movie</td><td>4</td></tr><tr><td>Wilson Yip</td><td>Movie</td><td>4</td></tr><tr><td>Wong Jing</td><td>Movie</td><td>4</td></tr><tr><td>A.R. Murugadoss</td><td>Movie</td><td>3</td></tr><tr><td>Abhinay Deo</td><td>Movie</td><td>3</td></tr><tr><td>Abhishek Kapoor</td><td>Movie</td><td>3</td></tr><tr><td>Abhishek Sharma</td><td>Movie</td><td>3</td></tr><tr><td>Alastair Fothergill</td><td>TV Show</td><td>3</td></tr><tr><td>Alex Lehmann</td><td>Movie</td><td>3</td></tr><tr><td>Alfonso Cuarón</td><td>Movie</td><td>3</td></tr><tr><td>Amitoj Mann</td><td>Movie</td><td>3</td></tr><tr><td>Angga Dwimas Sasongko</td><td>Movie</td><td>3</td></tr><tr><td>Antoine Fuqua</td><td>Movie</td><td>3</td></tr><tr><td>Anurag Basu</td><td>Movie</td><td>3</td></tr><tr><td>Ashwin Saravanan</td><td>Movie</td><td>3</td></tr><tr><td>Atom Egoyan</td><td>Movie</td><td>3</td></tr><tr><td>Aziz Mirza</td><td>Movie</td><td>3</td></tr>
+              </tbody>
+          </table>
+        
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </body>
+    </html>
+    
